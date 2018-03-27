@@ -8,7 +8,7 @@ public class App extends JFrame
 {
 	JMenuBar barra;
 	JMenu funcionarios, produtos, clientes, fornecedores, servicos;
-	JMenuItem estoque, cadcli, conscli, cadveic, consveic, cadfunc, consfunc, cadprod, consprod, cadserv, consserv, cadforn, consforn, sobre, cadcar, conscar, ordserv;
+	JMenuItem estoque, cadcli, conscli, cadveic, consveic, cadfunc, consfunc, cadprod, consprod, cadserv, consserv, cadforn, consforn, sobre, cadcar, conscar, ordserv, cadordemservico, consordemservico;
 	ImageIcon func, prod, cli, forn, serv, est, abt;
 	public App() {
 		super("RPM Mechanics");
@@ -59,6 +59,8 @@ public class App extends JFrame
 		consserv = new JMenuItem("Consultar Serviços");
 		cadforn = new JMenuItem("Cadastrar Fornecedor");
 		consforn = new JMenuItem("Consultar Fornecedor");
+        cadordemservico = new JMenuItem("Cadastrar Ordem de Serviço");
+        consordemservico = new JMenuItem("Consultar Ordem de Serviço");
 		
 		cadcli.setFont(new Font("Century Gothic", 0, 15));
 		conscli.setFont(new Font("Century Gothic", 0, 15));
@@ -73,6 +75,8 @@ public class App extends JFrame
 		cadprod.setFont(new Font("Century Gothic", 0, 15));
 		ordserv.setFont(new Font("Century Gothic", 0, 15));
 		consprod.setFont(new Font("Century Gothic", 0, 15));
+        cadordemservico.setFont(new Font("Century Gothic", 0, 15));
+        consordemservico.setFont(new Font("Century Gothic", 0, 15));
 		clientes.setFont(new Font("Century Gothic", 1, 16));
 		produtos.setFont(new Font("Century Gothic", 1, 16));
 		servicos.setFont(new Font("Century Gothic", 1, 16));
@@ -100,7 +104,8 @@ public class App extends JFrame
 		funcionarios.add(consfunc);
 		servicos.add(cadserv);
 		servicos.add(consserv);
-		servicos.add(ordserv);
+        servicos.add(cadordemservico);
+        servicos.add(consordemservico);
 		produtos.add(cadprod);
 		produtos.add(consprod);
 		fornecedores.add(cadforn);
@@ -135,6 +140,20 @@ public class App extends JFrame
 			}
 		});
 		
+                cadordemservico.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CadOrdemServico cados = new CadOrdemServico();
+				tela.add(cados);
+			}
+		});
+		
+		consordemservico.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ConsOrdemServico consos = new ConsOrdemServico();
+				tela.add(consos);
+			}
+		});
+                
 		setLocationRelativeTo(null);
 		setVisible(true);
 		setSize(820,500);
